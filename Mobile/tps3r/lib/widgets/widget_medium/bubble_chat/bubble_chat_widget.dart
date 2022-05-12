@@ -1,33 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:tps3r/widgets/widget_mini/bubble_chat/bubble_chat_widget.dart';
-import 'package:tps3r/widgets/widget_mini/image/image_widget.dart';
+import '../../widget_mini/bubble_chat/bubble_widget.dart';
 
 // ignore: must_be_immutable
 class BubbleChatWidget extends StatelessWidget {
-  bool internet;
-  String pathImage;
-  String textBubble;
-  bool me;
-  Color color;
-  Widget childWidget;
+  bool imageFromInternet;
+  String imagePath;
+  bool user;
+  String text;
+
   BubbleChatWidget(
-      {Key? key, required this.internet,
-      required this.pathImage,
-      required this.textBubble,
-      required this.me,
-      required this.color,
-      required this.childWidget}) : super(key: key);
+      {Key? key,
+      required this.imageFromInternet,
+      required this.imagePath,
+      required this.user,
+      required this.text})
+      : super(key: key);
+
+  Widget result() {
+    if (imageFromInternet) {
+      return CircleAvatar(backgroundImage: NetworkImage(imagePath));
+    } else {
+      return CircleAvatar(backgroundImage: AssetImage(imagePath));
+    }
+  }
+
+  Widget userOrAdmin() {
+    if (user) {
+      return Row(
+         mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              result(),
+            ],
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              BubbleWidget(user: user, text: text),
+            ],
+          )
+        ],
+      );
+    } else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              BubbleWidget(user: user, text: text),
+            ],
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              result(),
+            ],
+          ),
+        ],
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ImageWidget(internet: internet, pathImage: pathImage, whith: 30,),
-        Container(
-          width: 100,
-          color: Colors.red,
-        ),
-        BubbleWidget(me: me, color: color, childWidget: childWidget)
-      ],
-    );
+    return userOrAdmin();
   }
 }

@@ -11,9 +11,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: ChatWidget(typeHeader: 'chat'),
-        ),
+        child: ChatWidget(typeHeader: 'chat'),
       ),
       bottomNavigationBar: ButtonNavWidget(),
     );
