@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:tps3r/pages/detail_page/detail_page.dart';
-import 'package:tps3r/pages/home_page/home_page.dart';
-import 'package:tps3r/pages/login_page/login_page.dart';
-import 'package:tps3r/pages/profile_page/profile_page.dart';
-import 'package:tps3r/pages/register_page/register_page.dart';
+import 'package:tps3r/pages/edit_profile_page.dart';
+import 'package:tps3r/pages/home_poge.dart';
+import 'package:tps3r/pages/location_page.dart';
+import 'package:tps3r/pages/login_page.dart';
+import 'package:tps3r/pages/register_page.dart';
+import 'package:tps3r/pages/reward_page.dart';
+import 'package:tps3r/utils/routes/route_name.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const MyApps());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApps extends StatelessWidget {
+  const MyApps({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: RoutesName.locationPage,
       routes: {
-        '/': (context) => LoginPage(),
-        '/register': (context) => const RegisterPage(),
-        '/profile': (context) =>  const ProfilePage(),
-         '/home': (context) =>   HomePage(),
-          '/detail': (context) =>   DetailPage(),
+        RoutesName.login: (context) => LoginPage(),
+        RoutesName.register: (context) => const RegisterPage(),
+        RoutesName.profileEdit: (context) => const EditProfilePage(),
+        RoutesName.locationPage: (context) => const LocationPage(),
+        RoutesName.homePage: (context) => const HomePage(),
+        RoutesName.rewardPage: (context) => const RewardPage()
       },
     );
   }
