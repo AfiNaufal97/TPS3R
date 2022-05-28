@@ -10,9 +10,19 @@ import 'package:tps3r/widgets/atom/text_widget.dart';
 class HeaderWidget extends StatelessWidget {
   String? type;
   String? text;
+  Color? colorBackground;
+  Color? colorText;
   Widget? widget;
   void Function() function;
-  HeaderWidget({Key? key, this.type, required this.function, this.text, this.widget}) : super(key: key);
+  HeaderWidget(
+      {Key? key,
+      this.type,
+      required this.function,
+      this.text,
+      this.widget,
+      this.colorBackground = MyColors.main,
+      this.colorText = MyColors.white})
+      : super(key: key);
 
   Widget option() {
     if (type == StringResource.type2) {
@@ -31,7 +41,7 @@ class HeaderWidget extends StatelessWidget {
       );
     }
     return Container(
-      decoration: BoxDecoration(color: MyColors.main),
+      decoration: BoxDecoration(color: colorBackground ?? MyColors.main),
       child: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: SizeResource.paddingHorizontal,
@@ -40,12 +50,24 @@ class HeaderWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButtonWidget(
-              icon:  Icon(Icons.arrow_back_ios, color: MyColors.white,),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: colorText == MyColors.green
+                    ? MyColors.green
+                    : MyColors.white,
+              ),
               iconSize: 30,
               function: () {},
             ),
-            TextWidget(text: text ?? '', style: FontsStyle.textWhite,),
-            widget?? const SizedBox(width: 35,)
+            TextWidget(
+              text: text ?? '',
+              style: FontsStyle.textWhite
+                  .copyWith(color: colorText ?? MyColors.white),
+            ),
+            widget ??
+                const SizedBox(
+                  width: 35,
+                )
           ],
         ),
       ),
