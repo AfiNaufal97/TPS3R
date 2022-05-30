@@ -6,7 +6,6 @@ import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 import 'package:tps3r/widgets/moleculs/header_widget.dart';
-import 'package:tps3r/widgets/moleculs/list_option_widget.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -75,19 +74,6 @@ class AccountPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            ListOptionWidget(
-                textTile: StringResource.textDataPropfile,
-                textDesc: StringResource.textDescDataPropfile,
-                icon: const Icon(
-                  Icons.people,
-                  size: 35,
-                ),
-                function: () {}),
-            ListOptionWidget(
-                textTile: StringResource.textDataPembayaran,
-                textDesc: StringResource.textDescDataPembayaran,
-                icon: const Icon(Icons.payment, size: 35),
-                function: () {})
           ],
         ),
       ),

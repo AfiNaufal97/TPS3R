@@ -11,4 +11,6 @@ class RoutesName {
   static const rewardPage = '/reward_page';
   static const accountPage = '/account_page';
   static const onBoardingPage = '/boarding_page';
+  static const trackingPage = '/tracking_page';
+  static const resultPage = '/result_page';
 }

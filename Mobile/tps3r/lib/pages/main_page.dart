@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tps3r/pages/section_main_page/home_poge.dart';
+import 'package:tps3r/pages/section_main_page/profile_page.dart';
 
 import '../resources/map_icon_button.dart';
 
@@ -9,7 +10,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: SingleChildScrollView(child: HomePage())),
+      body: SafeArea(child: SingleChildScrollView(child: ProfilePage())),
       bottomNavigationBar: SizedBox(
         height: 50,
         child: Row(

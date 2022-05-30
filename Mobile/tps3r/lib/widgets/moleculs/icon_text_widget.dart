@@ -13,6 +13,7 @@ class IconTextWidget extends StatelessWidget{
     return Row(
       children: [
         widget,
+        const SizedBox(width: 10,),
         TextWidget(text: text, style: FontsStyle.textButtonOnboarding,)
       ],
     );

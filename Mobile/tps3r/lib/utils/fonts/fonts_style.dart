@@ -9,15 +9,26 @@ class FontsStyle {
   static TextStyle textMedium =
       FontsStyle.poppins.copyWith(fontSize: 16, fontWeight: FontWeight.w600);
 
-  static TextStyle textTitleOnboarding =
-      FontsStyle.poppins.copyWith(fontSize: 20, fontWeight: FontWeight.w800, color: MyColors.green);
+  static TextStyle textTitleOnboarding = FontsStyle.poppins.copyWith(
+      fontSize: 20, fontWeight: FontWeight.w800, color: MyColors.green);
 
-  static TextStyle textBodyOnboarding =
-      FontsStyle.poppins.copyWith(fontSize: 14, fontWeight: FontWeight.w500, color: MyColors.green,);
+  static TextStyle textBodyOnboarding = FontsStyle.poppins.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: MyColors.green,
+  );
 
+  static TextStyle textButtonOnboarding = FontsStyle.poppins.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: MyColors.green,
+  );
 
-  static TextStyle textButtonOnboarding =
-      FontsStyle.poppins.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: MyColors.green,);
+  static TextStyle textSectionMenu = FontsStyle.poppins.copyWith(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: MyColors.green,
+  );
 
   static TextStyle textRegular =
       FontsStyle.poppins.copyWith(fontSize: 14, fontWeight: FontWeight.w400);

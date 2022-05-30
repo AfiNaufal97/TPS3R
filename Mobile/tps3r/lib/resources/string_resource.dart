@@ -75,5 +75,29 @@ Sampah dengan Metode Reduce, Reuse dan Recycle)
 terus dilaksanakan secara berkala di Desa Dauh 
 Puri Kaja, Kecamatan Denpasar Utara. ''';
 
-static const textTitleNewsCategory = 'News';
+  static const textTitleNewsCategory = 'News';
+  static const textMoneySaldo = 'Rp. 32.000';
+  static const textCointSaldo = '1200';
+  static const textScanSampah = 'Sacan Sampah';
+  static const textValueSampahDiambil = 'Hari Ini jAdwal Sampah Kamu diambil';
+  static const textBapeling = 'Bapeling';
+  static const textDate = '20 mei 2022';
+  static const textBantuan = 'Bantuan';
+  static const textFaq = 'FAQ';
+  static const textContactUs = 'Kontak Kami';
+  static const textGiveRate = 'Beri Kami Nilai ';
+  static const textLogout = 'Logout ';
+  static const textTracking = 'Tracking ';
+  static const textStatusSampah = 'Status Sampah ';
+  static const textSttusPetugas1 = 'Petugas Menuju Lokasi';
+  static const textSttusPetugas2 = 'Petugas Sampai Dilokasi';
+  static const textSttusPetugas3 = 'Sampah Diambil';
+  static const textTake = 'Sampah Sudah Diambil';
+  static const textTitleResultPage = 'Result Page';
+  static const textInformationRate = '(1 Mengecewakan, 5 mantap!)';
+  static const textKecepatanAngkut = 'Ketepatan diangkut';
+  static const textWaktuPenjemputan = 'Waktu Penjemputan';
+  static const textSikapPetugas = 'Sikap petugas';
+  static const textPenentuanLokasi = 'Penemuan lokasi';
+  static const textCommentar = 'Punya saran atau komentar untuk kami?';
 }
