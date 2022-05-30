@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
+import 'package:tps3r/utils/routes/route_name.dart';
 import 'package:tps3r/widgets/atom/edit_text_widget.dart';
 import 'package:tps3r/widgets/atom/icon_button_widget.dart';
 import 'package:tps3r/widgets/atom/logo_widget.dart';
@@ -47,8 +48,9 @@ class LoginPage extends StatelessWidget {
                           height: 16,
                         ),
                         EditTextWidget(
-                          hint: 'contoh : masukan password',
+                          hint: '*********',
                           textTitleField: 'Password',
+                          cantRead: true,
                           validator: (valueIn) {
                             if (valueIn != null && valueIn.isEmpty) {
                               return 'Tidak Boleh Kososng';
@@ -61,13 +63,18 @@ class LoginPage extends StatelessWidget {
                         ),
                         ButtonWidget(
                           textButton: StringResource.titleLogin,
-                          color: MyColors.main,
-                          function: () {},
+                          color: MyColors.green,
+                          function: () {
+                            if (_formKey.currentState!.validate()) {
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  RoutesName.mainPage, (route) => false);
+                            }
+                          },
                         )
                       ],
                     )),
                 const SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -85,8 +92,16 @@ class LoginPage extends StatelessWidget {
                         function: () {})
                   ],
                 ),
-
-                TextLinkWidget(textNotLink: StringResource.textNoLink, textForLink: StringResource.textWithLink)
+                const SizedBox(
+                  height: 20,
+                ),
+                TextLinkWidget(
+                  textNotLink: StringResource.textNoLink,
+                  textForLink: StringResource.textWithLink,
+                  function: () {
+                    Navigator.pushNamed(context, RoutesName.register);
+                  },
+                )
               ],
             ),
           ),

@@ -6,7 +6,8 @@ import 'package:tps3r/widgets/atom/text_widget.dart';
 class IconTextWidget extends StatelessWidget{
   Widget widget;
   String text;
-  IconTextWidget({Key? key, required this.widget, required this.text}) : super(key: key);
+  TextStyle? style;
+  IconTextWidget({Key? key, required this.widget, required this.text, this.style}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,9 @@ class IconTextWidget extends StatelessWidget{
       children: [
         widget,
         const SizedBox(width: 10,),
-        TextWidget(text: text, style: FontsStyle.textButtonOnboarding,)
+        TextWidget(text: text, style: style ?? FontsStyle.textButtonOnboarding.copyWith(
+          fontSize: 12
+        ),)
       ],
     );
   }

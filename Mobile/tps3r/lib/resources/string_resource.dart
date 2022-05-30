@@ -28,8 +28,8 @@ class StringResource {
   static const pointValueText = '0';
   static const pointValue2Text = '300 Point';
   static const pointValueDate = 'berlaku sampai : 31 Desember 2022';
-  static const sayHello = 'Hello Again!';
-  static const sayHelloText = 'Hello Welcome Back You\'ve Been Missed';
+  static const sayHello = 'Hello!';
+  static const sayHelloText = 'Welcome Back You\'ve Been Missed';
   static const textNoLink = 'Belum Punya Akun ?';
   static const textWithLink = 'Daftar';
   static const textTypeValue = 'Potongan biaya ongkir';
@@ -78,7 +78,7 @@ Puri Kaja, Kecamatan Denpasar Utara. ''';
   static const textTitleNewsCategory = 'News';
   static const textMoneySaldo = 'Rp. 32.000';
   static const textCointSaldo = '1200';
-  static const textScanSampah = 'Sacan Sampah';
+  static const textScanSampah = 'Scan Sampah';
   static const textValueSampahDiambil = 'Hari Ini jAdwal Sampah Kamu diambil';
   static const textBapeling = 'Bapeling';
   static const textDate = '20 mei 2022';
@@ -100,4 +100,21 @@ Puri Kaja, Kecamatan Denpasar Utara. ''';
   static const textSikapPetugas = 'Sikap petugas';
   static const textPenentuanLokasi = 'Penemuan lokasi';
   static const textCommentar = 'Punya saran atau komentar untuk kami?';
+  static const textSayFromFaq = 'Hai,\nBagaimana kami dapat membantu kamu ?';
+  static const textLatePay =
+      'Bagaimana jika saya terlambat dalam membayar paket pengambilan sampah ?';
+  static const textWhenIUsePoint =
+      'Kapan saya dapat mengumpulkan dan menggunakan poin ini ?';
+  static const textChangePayment =
+      'Dapatkah saya merubah metode pembayaran penjemputan sampah saya ?';
+  static const textChangePick =
+      'Apakah saya masih bisa merubah alamat penjemputan sampah saya ?';
+  static const textPolicy = 'Kebijakan Panduan Aplikasi';
+  static const textPrivacy = 'Perlindungan Data Pribadi';
+  static const textOther = 'Other';
+  static const textTitleTopik = 'Topik';
+  static const textInputName = 'Name';
+  static const textTakeImage = 'Ambil Gambar Dari';
+  static const textCamera = 'Camera';
+  static const textGallery = 'Gallery';
 }

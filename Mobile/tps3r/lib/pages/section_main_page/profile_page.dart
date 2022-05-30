@@ -3,6 +3,7 @@ import 'package:tps3r/resources/size_resource.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
+import 'package:tps3r/utils/routes/route_name.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 import 'package:tps3r/widgets/moleculs/list_widget.dart';
 import 'package:tps3r/widgets/moleculs/profile_widget.dart';
@@ -65,12 +66,17 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(
                 height: SizeResource.marginS,
               ),
-              ListWidget(
-                prefixWidget: const Icon(
-                  Icons.help_outline,
-                  size: SizeResource.iconSize,
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, RoutesName.faqPage);
+                },
+                child: ListWidget(
+                  prefixWidget: const Icon(
+                    Icons.help_outline,
+                    size: SizeResource.iconSize,
+                  ),
+                  title: StringResource.textFaq,
                 ),
-                title: StringResource.textFaq,
               ),
               const SizedBox(
                 height: SizeResource.marginS,
@@ -85,12 +91,17 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(
                 height: SizeResource.marginS,
               ),
-              ListWidget(
-                prefixWidget: const Icon(
-                  Icons.star,
-                  size: SizeResource.iconSize,
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, RoutesName.resultPage);
+                },
+                child: ListWidget(
+                  prefixWidget: const Icon(
+                    Icons.star,
+                    size: SizeResource.iconSize,
+                  ),
+                  title: StringResource.textGiveRate,
                 ),
-                title: StringResource.textGiveRate,
               ),
               const SizedBox(height: 50,),
               Center(

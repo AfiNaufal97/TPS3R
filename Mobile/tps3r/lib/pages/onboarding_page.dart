@@ -5,6 +5,7 @@ import 'package:tps3r/resources/string_assets.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
+import 'package:tps3r/utils/routes/route_name.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 
 class OnBoardingPage extends StatelessWidget {
@@ -28,7 +29,9 @@ class OnBoardingPage extends StatelessWidget {
             text: StringResource.textSelesai,
             style: FontsStyle.textButtonOnboarding,
           ),
-          onDone: () {},
+          onDone: () {
+            Navigator.pushNamedAndRemoveUntil(context, RoutesName.login, (route) => false);
+          },
           next: TextWidget(
             text: StringResource.textNext,
             style: FontsStyle.textButtonOnboarding,

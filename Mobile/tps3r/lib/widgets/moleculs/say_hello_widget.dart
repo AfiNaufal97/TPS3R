@@ -10,7 +10,7 @@ class SayHelloWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,7 +20,7 @@ class SayHelloWidget extends StatelessWidget {
               style: FontsStyle.sayHello,
             ),
             SizedBox(
-              width: 250,
+              width: 200,
               child: TextWidget(
                 text: StringResource.sayHelloText,
                 style: FontsStyle.textMedium,

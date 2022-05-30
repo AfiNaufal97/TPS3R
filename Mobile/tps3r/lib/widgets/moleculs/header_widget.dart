@@ -34,7 +34,7 @@ class HeaderWidget extends StatelessWidget {
             IconButtonWidget(
               icon: const Icon(Icons.arrow_back_ios),
               iconSize: 30,
-              function: () {},
+              function: ()=> function,
             ),
           ],
         ),
@@ -57,7 +57,7 @@ class HeaderWidget extends StatelessWidget {
                     : MyColors.white,
               ),
               iconSize: 30,
-              function: () {},
+              function: function,
             ),
             TextWidget(
               text: text ?? '',

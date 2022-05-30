@@ -10,7 +10,7 @@ class RowTicketValueWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         height: 80,
-        width: MediaQuery.of(context).size.width - 40,
+        width: MediaQuery.of(context).size.width - 60,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -51,7 +51,7 @@ class RowTicketValueWidget extends StatelessWidget {
                          TextWidget(text: StringResource.pointValueDate, style:FontsStyle.textSmall,),
                       ],
                     ),
-                    const SizedBox(width: 30,),
+
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [

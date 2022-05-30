@@ -6,27 +6,26 @@ import 'package:tps3r/widgets/atom/text_widget.dart';
 class ListWidget extends StatelessWidget {
   String title;
   String? desc;
-  Widget prefixWidget;
+  Widget? prefixWidget;
   Widget? suffix;
+  TextStyle? style;
   ListWidget(
       {Key? key,
       required this.title,
       this.desc,
       this.suffix,
-      required this.prefixWidget})
+      this.style,
+      this.prefixWidget})
       : super(key: key);
 
   // ignore: non_constant_identifier_names
   Widget ColumnWidget() {
     if (desc == null) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextWidget(
-            text: title,
-            style: FontsStyle.textButtonOnboarding,
-          ),
-        ],
+      return Expanded(
+        child: TextWidget(
+          text: title,
+          style: style ??FontsStyle.textButtonOnboarding,
+        ),
       );
     }
     return Column(
@@ -36,11 +35,11 @@ class ListWidget extends StatelessWidget {
         TextWidget(
           text: title,
           maxLine: 2,
-          style: FontsStyle.textButtonOnboarding,
+          style: style ?? FontsStyle.textButtonOnboarding,
         ),
         TextWidget(
           text: desc ?? '',
-          style: FontsStyle.textRegular,
+          style:style ?? FontsStyle.textRegular,
         ),
       ],
     );
@@ -51,19 +50,19 @@ class ListWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            prefixWidget,
-            const SizedBox(
-              width: 10,
-            ),
-            ColumnWidget()
-          ],
+        Expanded(
+          child: Row(
+            children: [
+              prefixWidget ?? Container(),
+              const SizedBox(
+                width: 10,
+              ),
+              ColumnWidget()
+            ],
+          ),
         ),
         suffix ?? Container()
       ],
     );
-
- 
   }
 }

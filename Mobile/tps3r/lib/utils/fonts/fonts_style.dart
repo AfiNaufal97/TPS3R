@@ -40,7 +40,7 @@ class FontsStyle {
       fontSize: 12, fontWeight: FontWeight.w300, color: MyColors.black);
 
   static TextStyle sayHello =
-      FontsStyle.poppins.copyWith(fontSize: 35, fontWeight: FontWeight.w700);
+      FontsStyle.poppins.copyWith(fontSize: 20, fontWeight: FontWeight.w700);
   static TextStyle textWhite = FontsStyle.poppins.copyWith(
       fontSize: 18,
       letterSpacing: 1.8,

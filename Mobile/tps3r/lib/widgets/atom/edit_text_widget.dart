@@ -7,11 +7,13 @@ class EditTextWidget extends StatelessWidget {
   TextInputType? type;
   String textTitleField;
   String? initialValue;
+  bool? cantRead;
   String? Function(String? string) validator;
 
   EditTextWidget(
       {Key? key,
       required this.hint,
+      this.cantRead,
       this.initialValue,
       required this.validator,
       required this.textTitleField,
@@ -22,6 +24,7 @@ class EditTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: type,
+      obscureText: cantRead ?? false,
       initialValue: initialValue ?? '',
       decoration: InputDecoration(
         hintText: hint,

@@ -17,6 +17,8 @@ class SizeResource {
   static const marginL = 24.0;
   static const heightButtonScanWaste = 30.0;
   static const iconSize = 30.0;
+  static const iconSizeM = 60.0;
   static const sizeLogoM = 80.0;
   static const sizeSpacing = 10.0;
+  static const sizeTextLage = 18.0;
 }

@@ -4,16 +4,20 @@ import 'package:flutter/material.dart';
 class TextLinkWidget extends StatelessWidget {
   String textNotLink;
   String textForLink;
+  void Function() function;
   TextLinkWidget(
-      {Key? key, required this.textNotLink, required this.textForLink})
+      {Key? key, required this.textNotLink, required this.textForLink, required this.function})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(textNotLink),
-        Text(textForLink),
+        GestureDetector(
+          onTap:function,
+          child: Text(textForLink)),
       ],
     );
   }

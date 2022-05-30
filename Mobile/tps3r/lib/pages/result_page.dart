@@ -5,6 +5,7 @@ import 'package:tps3r/resources/string_assets.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
+import 'package:tps3r/utils/routes/route_name.dart';
 import 'package:tps3r/widgets/atom/button_widget.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 import 'package:tps3r/widgets/moleculs/header_widget.dart';
@@ -13,6 +14,7 @@ class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
 
   // Note Rating
+  // ignore: non_constant_identifier_names
   Widget RatingUs(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
@@ -62,6 +64,7 @@ class ResultPage extends StatelessWidget {
   }
 
   // Note : Attitude Officer
+  // ignore: non_constant_identifier_names
   Widget AttitudeOfficer(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(SizeResource.paddingS),
@@ -122,7 +125,9 @@ class ResultPage extends StatelessWidget {
         child: Column(
           children: [
             HeaderWidget(
-              function: () {},
+              function: () {
+                Navigator.pushNamedAndRemoveUntil(context, RoutesName.profile, (route) => false);
+              },
               text: StringResource.textTitleResultPage,
               colorText: MyColors.green,
             ),

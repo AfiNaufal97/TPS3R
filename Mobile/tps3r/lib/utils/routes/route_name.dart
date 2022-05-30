@@ -13,4 +13,6 @@ class RoutesName {
   static const onBoardingPage = '/boarding_page';
   static const trackingPage = '/tracking_page';
   static const resultPage = '/result_page';
+  static const faqPage = '/faq_page';
+  static const informationWastePage = '/information_waste_page';
 }

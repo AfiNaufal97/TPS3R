@@ -5,6 +5,7 @@ import 'package:tps3r/resources/string_assets.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
+import 'package:tps3r/utils/routes/route_name.dart';
 import 'package:tps3r/widgets/atom/button_widget.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 import 'package:tps3r/widgets/moleculs/box_news_widget.dart';
@@ -28,13 +29,13 @@ class HomePage extends StatelessWidget {
         children: [
           CarouselSlider(
             options: CarouselOptions(
-                autoPlay: false,
-                enlargeCenterPage: true,
-                viewportFraction: 0.7,
-                aspectRatio: 2.0,
-                initialPage: 2,
-                height: 110,
-               ),
+              autoPlay: false,
+              enlargeCenterPage: true,
+              viewportFraction: 0.7,
+              aspectRatio: 2.0,
+              initialPage: 2,
+              height: 110,
+            ),
             items: const [
               CarouselWidget(),
               CarouselWidget(),
@@ -94,7 +95,7 @@ class HomePage extends StatelessWidget {
   Widget BoxPoint(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(SizeResource.padding),
-      width: MediaQuery.of(context).size.width - 80,
+      width: MediaQuery.of(context).size.width - 70,
       decoration: BoxDecoration(
           color: MyColors.white,
           boxShadow: const [
@@ -117,7 +118,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     TextWidget(
                       text: StringResource.saldoBapeling,
-                      style: FontsStyle.textRegular.copyWith(
+                      style: FontsStyle.textSmall.copyWith(
                           fontWeight: FontWeight.w700, color: MyColors.green),
                     ),
                     const SizedBox(
@@ -147,7 +148,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     TextWidget(
                       text: StringResource.pointBapelling,
-                      style: FontsStyle.textRegular.copyWith(
+                      style: FontsStyle.textSmall.copyWith(
                           fontWeight: FontWeight.w700, color: MyColors.green),
                     ),
                     const SizedBox(
@@ -169,7 +170,9 @@ class HomePage extends StatelessWidget {
           ),
           ButtonWidget(
             textButton: StringResource.textScanSampah,
-            function: () {},
+            function: () {
+              Navigator.pushNamed(context, RoutesName.informationWastePage);
+            },
             width: MediaQuery.of(context).size.width - 120,
             color: MyColors.green,
             radius: SizeResource.radius,
@@ -190,7 +193,7 @@ class HomePage extends StatelessWidget {
           children: [
             ProfileWidget(),
             const SizedBox(
-              height: 90,
+              height: 110,
             ),
             Padding(
               padding: const EdgeInsets.all(SizeResource.padding),
