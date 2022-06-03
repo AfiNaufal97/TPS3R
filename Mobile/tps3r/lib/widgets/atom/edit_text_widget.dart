@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
 
 // ignore: must_be_immutable
-class EditTextWidget extends StatelessWidget {
+class EditTextWidget extends StatefulWidget {
   String hint;
+  Widget? start;
   TextInputType? type;
   String textTitleField;
   String? initialValue;
@@ -13,7 +14,8 @@ class EditTextWidget extends StatelessWidget {
   EditTextWidget(
       {Key? key,
       required this.hint,
-      this.cantRead,
+      this.cantRead = false,
+      this.start,
       this.initialValue,
       required this.validator,
       required this.textTitleField,
@@ -21,22 +23,37 @@ class EditTextWidget extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<EditTextWidget> createState() => _EditTextWidgetState();
+}
+
+class _EditTextWidgetState extends State<EditTextWidget> {
+  bool show = false;
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: type,
-      obscureText: cantRead ?? false,
-      initialValue: initialValue ?? '',
-      decoration: InputDecoration(
-        hintText: hint,
-        labelText: textTitleField,
+      keyboardType: widget.type,
+      obscureText: widget.cantRead! && !show ? true:false,
+      initialValue: widget.initialValue ?? '',
+      decoration: InputDecoration( 
+        prefixIcon: widget.start?? const SizedBox(),
+        suffixIcon:widget.cantRead! ?GestureDetector(
+          onTap: (){
+            setState(() {
+              show = !show;
+            });
+          },
+          child: show ?const Icon(Icons.visibility): const Icon(Icons.visibility_off),
+        ) : const SizedBox(),
+        hintText: widget.hint,
+        labelText: widget.textTitleField,
         border: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide:const  BorderSide(
             color: MyColors.black,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      validator: validator,
+      validator: widget.validator,
     );
   }
 }

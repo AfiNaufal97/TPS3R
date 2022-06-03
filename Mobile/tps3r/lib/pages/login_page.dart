@@ -35,6 +35,7 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       children: [
                         EditTextWidget(
+                          start: const Icon(Icons.email),
                           hint: 'contoh : afi@mail.com',
                           textTitleField: 'Email',
                           validator: (valueIn) {
@@ -48,7 +49,9 @@ class LoginPage extends StatelessWidget {
                           height: 16,
                         ),
                         EditTextWidget(
+                          start: const Icon(Icons.password),
                           hint: '*********',
+            
                           textTitleField: 'Password',
                           cantRead: true,
                           validator: (valueIn) {

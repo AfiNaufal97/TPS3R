@@ -11,7 +11,7 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      maxLines: maxLine ?? null,
+      maxLines: maxLine??2,
       textAlign: textAlign,
       style: style,
     );

@@ -24,7 +24,7 @@ class HeaderWidget extends StatelessWidget {
       this.colorText = MyColors.white})
       : super(key: key);
 
-  Widget option() {
+  Widget option(BuildContext context) {
     if (type == StringResource.type2) {
       return Padding(
         padding: const EdgeInsets.symmetric(
@@ -34,7 +34,7 @@ class HeaderWidget extends StatelessWidget {
             IconButtonWidget(
               icon: const Icon(Icons.arrow_back_ios),
               iconSize: 30,
-              function: ()=> function,
+              function: function,
             ),
           ],
         ),
@@ -76,6 +76,6 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return option();
+    return option(context);
   }
 }

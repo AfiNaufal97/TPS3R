@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 4,
-              itemBuilder: (context, value) => BoxWasteCategoryWidget()),
+              itemBuilder: (context, value) => const BoxWasteCategoryWidget()),
         )
       ],
     );
@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
         SizedBox(
           height: MediaQuery.of(context).size.height,
           child: ListView.builder(
-              itemCount: 5, itemBuilder: (context, value) => BoxNewsWidget()),
+              itemCount: 5, itemBuilder: (context, value) => const BoxNewsWidget()),
         ),
       ],
     );
@@ -185,37 +185,39 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.topCenter,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ProfileWidget(),
-            const SizedBox(
-              height: 110,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(SizeResource.padding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CarouselSliderWidget(),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  WasteCategory(context),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  BoxNews(context),
-                ],
+    return SingleChildScrollView(
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ProfileWidget(),
+              const SizedBox(
+                height: 110,
               ),
-            )
-          ],
-        ),
-        Positioned(top: 100, child: BoxPoint(context))
-      ],
+              Padding(
+                padding: const EdgeInsets.all(SizeResource.padding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CarouselSliderWidget(),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    WasteCategory(context),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    BoxNews(context),
+                  ],
+                ),
+              )
+            ],
+          ),
+          Positioned(top: 100, child: BoxPoint(context))
+        ],
+      ),
     );
   }
 }

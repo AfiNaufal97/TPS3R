@@ -49,6 +49,8 @@ dependencies:
   image_picker: ^0.8.5+3
   location: ^4.4.0
   flutter_native_splash: ^2.1.6
+  video_player: ^2.4.2
+  youtube_player_flutter: ^8.0.0
 
 flutter_native_splash:
   color: "#FFFFFF"
@@ -81,6 +83,7 @@ flutter:
   assets:
     - assets/assets/image/
     - assets/assets/json/
+    - assets/assets/model/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

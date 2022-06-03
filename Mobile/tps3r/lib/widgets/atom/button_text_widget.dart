@@ -23,7 +23,7 @@ class ButtonTextWidget extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            Icon(
+            const Icon(
               Icons.send,
               color: MyColors.main,
             )

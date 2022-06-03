@@ -109,6 +109,7 @@ class ResultPage extends StatelessWidget {
   }
 
   //Note: Commentar
+  // ignore: non_constant_identifier_names
   Widget CommentarWidget(){
     return Column(
       children: [

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tps3r/bloc/bloc_add_image.dart';
+import 'package:tps3r/bloc/bloc_image_prediction.dart';
 import 'package:tps3r/bloc/bloc_page.dart';
 import 'package:tps3r/pages/edit_profile_page.dart';
 import 'package:tps3r/pages/faq_page.dart';
@@ -14,8 +16,6 @@ import 'package:tps3r/pages/reward_page.dart';
 import 'package:tps3r/pages/tracking_page.dart';
 import 'package:tps3r/utils/routes/route_name.dart';
 
-import 'bloc/bloc_image.dart';
-
 void main() => runApp(const MyApps());
 
 class MyApps extends StatelessWidget {
@@ -26,7 +26,8 @@ class MyApps extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => BlocPage()),
-        BlocProvider(create: (context) => BlocImage())
+        BlocProvider(create: (context) => BlocAddImage()),
+        BlocProvider(create: (context) => BlocImagePrediction())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -42,7 +43,8 @@ class MyApps extends StatelessWidget {
           RoutesName.trackingPage: (context) => const TrackingPage(),
           RoutesName.resultPage: (context) => const ResultPage(),
           RoutesName.faqPage: (context) => const FaqPage(),
-          RoutesName.informationWastePage: (context) => const InformationWastePage()
+          RoutesName.informationWastePage: (context) =>
+              const InformationWastePage(),
         },
       ),
     );

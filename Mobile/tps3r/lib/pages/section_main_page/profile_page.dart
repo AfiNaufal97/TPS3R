@@ -9,6 +9,8 @@ import 'package:tps3r/widgets/moleculs/list_widget.dart';
 import 'package:tps3r/widgets/moleculs/profile_widget.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(

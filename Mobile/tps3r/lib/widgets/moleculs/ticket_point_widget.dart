@@ -8,7 +8,7 @@ class TicketPointWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: MyColors.white),
+      decoration: const BoxDecoration(color: MyColors.white),
       width: MediaQuery.of(context).size.width - 40,
       height: 100,
       child: Stack(children: [

@@ -17,25 +17,24 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: SingleChildScrollView(child: BlocBuilder<BlocPage, int>(
+      body: SafeArea(child: BlocBuilder<BlocPage, int>(
         builder: (context, state) {
-         switch (state) {
-           case 0:
-             return HomePage();
+          switch (state) {
+            case 0:
+              return HomePage();
             case 1:
-            return MapsPage();
-            case 2: 
-            return StorePage();
+              return const MapsPage();
+            case 2:
+              return const StorePage();
             case 3:
-            return NotificationPage();
+              return const NotificationPage();
             case 4:
-            return ProfilePage();
-           default:
-           return HomePage();
-         }
+              return const ProfilePage();
+            default:
+              return HomePage();
+          }
         },
-      ))),
+      )),
       bottomNavigationBar: SizedBox(
           height: 50,
           child:
@@ -45,7 +44,6 @@ class MainPage extends StatelessWidget {
                 context.read<BlocPage>().home();
               },
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(
@@ -74,7 +72,6 @@ class MainPage extends StatelessWidget {
                 context.read<BlocPage>().maps();
               },
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(

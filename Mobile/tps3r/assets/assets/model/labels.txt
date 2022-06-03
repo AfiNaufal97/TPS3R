@@ -1,0 +1,5 @@
+0 Baterai
+1 Biologis
+2 Kardus
+3 Kertas
+4 Plastik

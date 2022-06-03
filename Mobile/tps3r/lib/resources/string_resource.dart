@@ -117,4 +117,7 @@ Puri Kaja, Kecamatan Denpasar Utara. ''';
   static const textTakeImage = 'Ambil Gambar Dari';
   static const textCamera = 'Camera';
   static const textGallery = 'Gallery';
+  static const textDetectionWaste = 'Deteksi Sampah';
+  static const textButtonCekWaste = 'Cek Sampah';
+  static const textWastePrediction = 'Jenis Sampah';
 }

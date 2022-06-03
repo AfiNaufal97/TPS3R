@@ -6,13 +6,15 @@ import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 
 class BoxNewsWidget extends StatelessWidget {
+  const BoxNewsWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(SizeResource.marginM),
       decoration: BoxDecoration(
           color: MyColors.white,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 blurRadius: 0.9,
                 blurStyle: BlurStyle.outer,

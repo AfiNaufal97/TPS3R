@@ -8,6 +8,8 @@ import '../../utils/fonts/fonts_style.dart';
 import '../atom/text_widget.dart';
 
 class BoxWasteCategoryWidget extends StatelessWidget {
+  const BoxWasteCategoryWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +22,7 @@ class BoxWasteCategoryWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(SizeResource.radius)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const CircleAvatar(
             radius: 30,

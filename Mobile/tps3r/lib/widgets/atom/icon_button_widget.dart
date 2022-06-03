@@ -15,7 +15,7 @@ class IconButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: function,
       icon: icon,
       iconSize: iconSize,
     );
