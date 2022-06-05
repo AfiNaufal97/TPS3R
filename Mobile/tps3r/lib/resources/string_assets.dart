@@ -11,4 +11,5 @@ abstract class StringAssets {
   static const imgCoint = 'assets/assets/image/coint.png';
   static const imgTruck = 'assets/assets/image/delivery.png';
   static const imgTake = 'assets/assets/image/take.png';
+    static const imgTps3r = 'assets/assets/image/tps.png';
 }

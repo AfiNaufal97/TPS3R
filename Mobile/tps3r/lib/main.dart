@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tps3r/bloc/bloc_add_image.dart';
 import 'package:tps3r/bloc/bloc_image_prediction.dart';
 import 'package:tps3r/bloc/bloc_page.dart';
+import 'package:tps3r/bloc/bloc_show_detail.dart';
 import 'package:tps3r/pages/edit_profile_page.dart';
 import 'package:tps3r/pages/faq_page.dart';
 import 'package:tps3r/pages/information_waste_page.dart';
@@ -27,7 +28,8 @@ class MyApps extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => BlocPage()),
         BlocProvider(create: (context) => BlocAddImage()),
-        BlocProvider(create: (context) => BlocImagePrediction())
+        BlocProvider(create: (context) => BlocImagePrediction()),
+        BlocProvider(create: (context) => BlocShowDetail())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

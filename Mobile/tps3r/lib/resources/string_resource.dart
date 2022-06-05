@@ -120,4 +120,12 @@ Puri Kaja, Kecamatan Denpasar Utara. ''';
   static const textDetectionWaste = 'Deteksi Sampah';
   static const textButtonCekWaste = 'Cek Sampah';
   static const textWastePrediction = 'Jenis Sampah';
+  static const tps3rKubuLestariPamongan = 'TPS3R KUBU LESTARI PEMOGAN';
+  static const tps3rSekarTanjung = 'TPS3R KSM SEKAR TANJUNG';
+  static const textLocationTps3r =
+      'F3X7+MWP, Jl. Kepuh Sari, Bantas, Kec. Selemadeg Tim., Kabupaten Tabanan, Bali 82161';
+  static const textTitleTimeOpen = 'Jadwal Buka';
+  static const textValueTimeOpen =
+      'Senin s/d Jum\'at 09-17';
+  static const textNoTelp = '0812334566777';
 }

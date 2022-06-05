@@ -23,7 +23,7 @@ class MainPage extends StatelessWidget {
             case 0:
               return HomePage();
             case 1:
-              return const MapsPage();
+              return MapsPage();
             case 2:
               return const StorePage();
             case 3:

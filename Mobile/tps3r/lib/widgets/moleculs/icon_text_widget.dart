@@ -15,9 +15,11 @@ class IconTextWidget extends StatelessWidget{
       children: [
         widget,
         const SizedBox(width: 10,),
-        TextWidget(text: text, style: style ?? FontsStyle.textButtonOnboarding.copyWith(
-          fontSize: 12
-        ),)
+        Expanded(
+          child: TextWidget(text: text, style: style ?? FontsStyle.textButtonOnboarding.copyWith(
+            fontSize: 12
+          ),),
+        )
       ],
     );
   }

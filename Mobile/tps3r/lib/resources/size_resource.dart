@@ -21,4 +21,5 @@ class SizeResource {
   static const sizeLogoM = 80.0;
   static const sizeSpacing = 10.0;
   static const sizeTextLage = 18.0;
+  static const opacity = 0.7;
 }
