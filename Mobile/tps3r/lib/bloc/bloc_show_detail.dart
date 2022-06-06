@@ -16,15 +16,12 @@ class BlocShowDetail extends Cubit<BlocShowDetailSstate> {
           noTelepon: noTelp,
           open: StringResource.textValueTimeOpen);
       emit(StateSuccess(model: data));
-
-      print(this.state);
     } catch (e) {
       emit(StateError(error: e.toString()));
     }
   }
 
   void endShow() {
-    print(this.state);
     emit(StateInit());
   }
 }

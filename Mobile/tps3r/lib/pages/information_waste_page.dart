@@ -1,22 +1,22 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tps3r/bloc/bloc_add_image.dart';
 import 'package:tps3r/bloc/bloc_image_prediction.dart';
 import 'package:tps3r/bloc/cubit/bloc_add_photo_state.dart';
 import 'package:tps3r/pages/result_waste_page.dart';
-import 'package:tps3r/resources/size_resource.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
-import 'package:tps3r/utils/fonts/fonts_style.dart';
-import 'package:tps3r/utils/routes/route_name.dart';
 import 'package:tps3r/widgets/atom/button_widget.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
-import 'package:tps3r/widgets/moleculs/header_widget.dart';
-import 'package:tps3r/widgets/moleculs/icon_text_widget.dart';
-import 'package:tps3r/widgets/moleculs/take_image_widget.dart';
 
+import '../bloc/bloc_add_image.dart';
 import '../bloc/cubit/bloc_image_prediction_state.dart';
+import '../resources/size_resource.dart';
+import '../utils/fonts/fonts_style.dart';
+import '../utils/routes/route_name.dart';
+import '../widgets/moleculs/header_widget.dart';
+import '../widgets/moleculs/icon_text_widget.dart';
+import '../widgets/moleculs/take_image_widget.dart';
 
 class InformationWastePage extends StatelessWidget {
   const InformationWastePage({Key? key}) : super(key: key);
@@ -154,9 +154,8 @@ class InformationWastePage extends StatelessWidget {
                       },
                     )
                   ],
-                ),
-              ],
-            ),
+                
+              )  ])
           ),
         ),
       ),

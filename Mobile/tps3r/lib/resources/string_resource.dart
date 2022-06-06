@@ -125,7 +125,8 @@ Puri Kaja, Kecamatan Denpasar Utara. ''';
   static const textLocationTps3r =
       'F3X7+MWP, Jl. Kepuh Sari, Bantas, Kec. Selemadeg Tim., Kabupaten Tabanan, Bali 82161';
   static const textTitleTimeOpen = 'Jadwal Buka';
-  static const textValueTimeOpen =
-      'Senin s/d Jum\'at 09-17';
+  static const textValueTimeOpen = 'Senin s/d Jum\'at 09-17';
   static const textNoTelp = '0812334566777';
+  static const textSearchHint = 'example : Denpasar';
+  static const textSearchTitle = 'Search';
 }

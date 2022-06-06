@@ -18,12 +18,12 @@ class ResultWastePage extends StatelessWidget {
 
   //Note : Information Waste
   // ignore: non_constant_identifier_names
-  Widget WasteInformation({required String data}) {
+  Widget WasteInformation({required String data,}) {
     var information = getDataInformation(data);
 
     return Container(
-      width: double.infinity,
-      height: 500,
+      
+      height: 300,
       margin: const EdgeInsets.all(SizeResource.marginS),
       padding: const EdgeInsets.all(SizeResource.padding),
       decoration: BoxDecoration(
@@ -35,6 +35,7 @@ class ResultWastePage extends StatelessWidget {
             style: FontsStyle.textTitleOnboarding,
           ),
           TextWidget(
+            maxLine: 10,
             text: information.desc,
             style: FontsStyle.textRegular,
           )
@@ -48,8 +49,8 @@ class ResultWastePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
           width: double.infinity,
+          height: MediaQuery.of(context).size.height,
           child: SingleChildScrollView(
             child: Column(
               children: [

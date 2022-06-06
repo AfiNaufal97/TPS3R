@@ -7,6 +7,7 @@ import 'package:tps3r/bloc/bloc_show_detail.dart';
 import 'package:tps3r/bloc/cubit/bloc_show_detail_state.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/services/maps_service.dart';
+import 'package:tps3r/widgets/atom/edit_text_widget.dart';
 import 'package:tps3r/widgets/moleculs/detail_location_widget.dart';
 
 import '../../resources/size_resource.dart';
@@ -20,7 +21,8 @@ class MapsPage extends StatefulWidget {
 }
 
 class _MapsPageState extends State<MapsPage> {
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
+  TextEditingController controllerEdt = TextEditingController(text: '');
   double lat = -8.650000;
   double long = 115.216667;
 
@@ -62,9 +64,9 @@ class _MapsPageState extends State<MapsPage> {
                     noTelp: StringResource.textNoTelp);
               })),
       Marker(
-        markerId: MarkerId(StringResource.tps3rSekarTanjung),
-        position:
-            LatLng(-8.703316298491089, 115.24583211200786), //position of marker
+        markerId: const MarkerId(StringResource.tps3rSekarTanjung),
+        position: const LatLng(
+            -8.703316298491089, 115.24583211200786), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: StringResource.tps3rSekarTanjung,
@@ -77,9 +79,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPS3R PEMECUTAN KELOD'),
-        position:
-            LatLng(-8.670883250973066, 115.19467899851365), //position of marker
+        markerId: const MarkerId('TPS3R PEMECUTAN KELOD'),
+        position: const LatLng(
+            -8.670883250973066, 115.19467899851365), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPS3R PEMECUTAN KELOD ',
@@ -92,9 +94,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPS3R UMA SARI UBUNG KAJA'),
-        position:
-            LatLng(-8.625799366659892, 115.19323319666593), //position of marker
+        markerId: const MarkerId('TPS3R UMA SARI UBUNG KAJA'),
+        position: const LatLng(
+            -8.625799366659892, 115.19323319666593), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPS3R UMA SARI UBUNG KAJA ',
@@ -107,9 +109,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPS3R PULAU KAWE'),
-        position:
-            LatLng(-8.680560480982672, 115.20722663899569), //position of marker
+        markerId: const MarkerId('TPS3R PULAU KAWE'),
+        position: const LatLng(
+            -8.680560480982672, 115.20722663899569), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPS3R PULAU KAWE ',
@@ -122,9 +124,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPST 3R SEMINYAK BALI'),
-        position:
-            LatLng(-8.693182332373835, 115.17932085433705), //position of marker
+        markerId: const MarkerId('TPST 3R SEMINYAK BALI'),
+        position: const LatLng(
+            -8.693182332373835, 115.17932085433705), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPST 3R SEMINYAK BALI',
@@ -137,9 +139,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPS3R CEMARA DAJAN PEKEN'),
-        position:
-            LatLng(-8.521862306499076, 115.123151225304), //position of marker
+        markerId: const MarkerId('TPS3R CEMARA DAJAN PEKEN'),
+        position: const LatLng(
+            -8.521862306499076, 115.123151225304), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPS3R CEMARA DAJAN PEKEN',
@@ -152,9 +154,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPS3R PENARUNGAN'),
-        position:
-            LatLng(-8.527294783985537, 115.19627896690552), //position of marker
+        markerId: const MarkerId('TPS3R PENARUNGAN'),
+        position: const LatLng(
+            -8.527294783985537, 115.19627896690552), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPS3R PENARUNGAN',
@@ -167,9 +169,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPS3R KESIMAN'),
-        position:
-            LatLng(-8.654754292258641, 115.24534810593295), //position of marker
+        markerId: const MarkerId('TPS3R KESIMAN'),
+        position: const LatLng(
+            -8.654754292258641, 115.24534810593295), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPS3R KESIMAN',
@@ -182,23 +184,9 @@ class _MapsPageState extends State<MapsPage> {
       ),
       Marker(
         //add start location marker
-        markerId: MarkerId('TPS3R SARI SEDANA'),
-        position:
-            LatLng(-8.635746665500161, 115.19934285840598), //position of marker
-        infoWindow: InfoWindow(
-            //popup info
-            title: 'TPS3R SARI SEDANA',
-            snippet: 'Start Marker',
-            onTap: () {
-              context.read<BlocShowDetail>().showDetail(
-                  nameLoc: StringResource.tps3rKubuLestariPamongan,
-                  noTelp: StringResource.textNoTelp);
-            }),
-      ),
-      Marker(
-        //add start location marker
-        markerId: MarkerId('location'),
-        position: LatLng(0, 0), //position of marker
+        markerId: const MarkerId('TPS3R SARI SEDANA'),
+        position: const LatLng(
+            -8.635746665500161, 115.19934285840598), //position of marker
         infoWindow: InfoWindow(
             //popup info
             title: 'TPS3R SARI SEDANA',
@@ -214,22 +202,28 @@ class _MapsPageState extends State<MapsPage> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_unnecessary_containers
     return Container(
         child: Stack(alignment: Alignment.center, children: [
-      GoogleMap(
-        myLocationEnabled: true,
-        trafficEnabled: true,
-        zoomControlsEnabled: false,
-        myLocationButtonEnabled: false,
-        initialCameraPosition: _start,
-        markers: markerList().toSet(),
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
+      GestureDetector(
+        onTap: () {
+          context.read<BlocShowDetail>().endShow();
         },
+        child: GoogleMap(
+          myLocationEnabled: true,
+          trafficEnabled: true,
+          zoomControlsEnabled: false,
+          myLocationButtonEnabled: false,
+          initialCameraPosition: _start,
+          markers: markerList().toSet(),
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+        ),
       ),
       Positioned(
         top: SizeResource.marginM,
-        right: SizeResource.marginM,
+        right: SizeResource.marginS,
         child: FloatingActionButton(
           mini: true,
           backgroundColor: MyColors.white.withOpacity(0.7),
@@ -249,6 +243,20 @@ class _MapsPageState extends State<MapsPage> {
           }
           return const Positioned(bottom: 10, child: DetailLocationWidget());
         },
+      ),
+      Positioned(
+        top: SizeResource.marginS,
+        left: SizeResource.marginS,
+        child: Container(
+          width: MediaQuery.of(context).size.width - 70,
+          decoration: BoxDecoration(
+              color: Colors.white.withOpacity(SizeResource.opacity)),
+          child: EditTextWidget(
+              notRegis: true,
+              hint: StringResource.textSearchHint,
+              validator: (String? input) {},
+              textTitleField: StringResource.textSearchTitle),
+        ),
       )
     ]));
   }

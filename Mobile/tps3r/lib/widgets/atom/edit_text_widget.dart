@@ -5,8 +5,10 @@ import 'package:tps3r/utils/colors/colors_style.dart';
 class EditTextWidget extends StatefulWidget {
   String hint;
   Widget? start;
+  bool? notRegis;
   TextInputType? type;
   String textTitleField;
+  void Function()? onEditingComplete;
   String? initialValue;
   bool? cantRead;
   String? Function(String? string) validator;
@@ -16,7 +18,9 @@ class EditTextWidget extends StatefulWidget {
       required this.hint,
       this.cantRead = false,
       this.start,
+      this.notRegis = false,
       this.initialValue,
+      this.onEditingComplete,
       required this.validator,
       required this.textTitleField,
       this.type})
@@ -32,22 +36,26 @@ class _EditTextWidgetState extends State<EditTextWidget> {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: widget.type,
-      obscureText: widget.cantRead! && !show ? true:false,
+      obscureText: widget.cantRead! && !show ? true : false,
       initialValue: widget.initialValue ?? '',
-      decoration: InputDecoration( 
-        prefixIcon: widget.start?? const SizedBox(),
-        suffixIcon:widget.cantRead! ?GestureDetector(
-          onTap: (){
-            setState(() {
-              show = !show;
-            });
-          },
-          child: show ?const Icon(Icons.visibility): const Icon(Icons.visibility_off),
-        ) : const SizedBox(),
+      decoration: InputDecoration(
+        prefixIcon: widget.start ?? const SizedBox(),
+        suffixIcon: widget.cantRead!
+            ? GestureDetector(
+                onTap: () {
+                  setState(() {
+                    show = !show;
+                  });
+                },
+                child: show
+                    ? const Icon(Icons.visibility)
+                    : const Icon(Icons.visibility_off),
+              )
+            : const SizedBox(),
         hintText: widget.hint,
-        labelText: widget.textTitleField,
+        labelText: widget.notRegis! ? '' : widget.textTitleField,
         border: OutlineInputBorder(
-          borderSide:const  BorderSide(
+          borderSide: const BorderSide(
             color: MyColors.black,
           ),
           borderRadius: BorderRadius.circular(10),
