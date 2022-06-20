@@ -38,11 +38,14 @@ class FontsStyle {
 
   static TextStyle textSmallBlack = FontsStyle.poppins.copyWith(
       fontSize: 12, fontWeight: FontWeight.w300, color: MyColors.black);
+      static TextStyle textSmallBold = FontsStyle.poppins.copyWith(
+      fontSize: 12, fontWeight: FontWeight.w700, color: MyColors.black);
 
   static TextStyle sayHello =
       FontsStyle.poppins.copyWith(fontSize: 20, fontWeight: FontWeight.w700);
+
   static TextStyle textWhite = FontsStyle.poppins.copyWith(
-      fontSize: 18,
+      fontSize: 15,
       letterSpacing: 1.8,
       fontWeight: FontWeight.w700,
       color: MyColors.white);

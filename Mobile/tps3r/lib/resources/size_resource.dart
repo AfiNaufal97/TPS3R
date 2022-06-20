@@ -22,4 +22,8 @@ class SizeResource {
   static const sizeSpacing = 10.0;
   static const sizeTextLage = 18.0;
   static const opacity = 0.7;
+  static const widthL = 5.0;
+  static const heightL = 10.0;
+  static const right5 = 5.0;
+  static const top5 = 5.0;
 }

@@ -11,5 +11,17 @@ abstract class StringAssets {
   static const imgCoint = 'assets/assets/image/coint.png';
   static const imgTruck = 'assets/assets/image/delivery.png';
   static const imgTake = 'assets/assets/image/take.png';
-    static const imgTps3r = 'assets/assets/image/tps.png';
+  static const imgTps3r = 'assets/assets/image/tps.png';
+  static const imgNews = 'assets/assets/image/news.png';
+  static const imgShield = 'assets/assets/image/shield.png';
+  static const imgScurityAccount = 'assets/assets/image/1 24.png';
+  static const imgPrivacy = 'assets/assets/image/2 8.png';
+  static const imgAnother = 'assets/assets/image/3 2.png';
+  static const imgSaveDataUser = 'assets/assets/image/4 1.png';
+  static const imgTypeDataPrivacy = 'assets/assets/image/5 1.png';
+  static const imgOffAccount = 'assets/assets/image/6 1.png';
+  static const imgAdminForUserData = 'assets/assets/image/7 3.png';
+  static const imgHowToPay= 'assets/assets/image/1 25.png';
+  static const imgHowToPayWithCoint= 'assets/assets/image/2 9.png';
+  static const imgHowToChangePay= 'assets/assets/image/3 3.png';
 }

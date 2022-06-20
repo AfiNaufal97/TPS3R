@@ -52,10 +52,14 @@ dependencies:
   video_player: ^2.4.2
   youtube_player_flutter: ^8.0.0
   dio: ^4.0.6
+  firebase_core: ^1.17.1
+  firebase_messaging: ^11.4.1
+  flutter_local_notifications: ^9.5.3+1
+  webview_flutter: ^3.0.4
 
 flutter_native_splash:
   color: "#FFFFFF"
-  image: assets/assets/image/icon.png
+  image: assets/assets/image/logo.png
   android: true
 
 dev_dependencies:

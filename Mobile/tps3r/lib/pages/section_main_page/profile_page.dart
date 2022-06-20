@@ -32,6 +32,7 @@ class ProfilePage extends StatelessWidget {
                 height: SizeResource.marginS,
               ),
               ListWidget(
+                function: () => Navigator.pushNamed(context, RoutesName.profileEdit),
                 prefixWidget: const Icon(
                   Icons.person,
                   size: SizeResource.iconSize,
@@ -47,6 +48,7 @@ class ProfilePage extends StatelessWidget {
                 height: SizeResource.marginS,
               ),
               ListWidget(
+                function: () {},
                 prefixWidget: const Icon(
                   Icons.wallet_membership_rounded,
                   size: SizeResource.iconSize,
@@ -68,22 +70,21 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(
                 height: SizeResource.marginS,
               ),
-              GestureDetector(
-                onTap: (){
+              ListWidget(
+                function: () {
                   Navigator.pushNamed(context, RoutesName.faqPage);
                 },
-                child: ListWidget(
-                  prefixWidget: const Icon(
-                    Icons.help_outline,
-                    size: SizeResource.iconSize,
-                  ),
-                  title: StringResource.textFaq,
+                prefixWidget: const Icon(
+                  Icons.help_outline,
+                  size: SizeResource.iconSize,
                 ),
+                title: StringResource.textFaq,
               ),
               const SizedBox(
                 height: SizeResource.marginS,
               ),
               ListWidget(
+                function: () {},
                 prefixWidget: const Icon(
                   Icons.email,
                   size: SizeResource.iconSize,
@@ -93,19 +94,19 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(
                 height: SizeResource.marginS,
               ),
-              GestureDetector(
-                onTap: (){
+              ListWidget(
+                function: () {
                   Navigator.pushNamed(context, RoutesName.resultPage);
                 },
-                child: ListWidget(
-                  prefixWidget: const Icon(
-                    Icons.star,
-                    size: SizeResource.iconSize,
-                  ),
-                  title: StringResource.textGiveRate,
+                prefixWidget: const Icon(
+                  Icons.star,
+                  size: SizeResource.iconSize,
                 ),
+                title: StringResource.textGiveRate,
               ),
-              const SizedBox(height: 50,),
+              const SizedBox(
+                height: 50,
+              ),
               Center(
                 child: TextButton(
                     onPressed: () {},

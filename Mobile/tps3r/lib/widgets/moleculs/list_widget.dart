@@ -6,6 +6,7 @@ import 'package:tps3r/widgets/atom/text_widget.dart';
 class ListWidget extends StatelessWidget {
   String title;
   String? desc;
+  void Function() function;
   Widget? prefixWidget;
   Widget? suffix;
   TextStyle? style;
@@ -13,6 +14,7 @@ class ListWidget extends StatelessWidget {
       {Key? key,
       required this.title,
       this.desc,
+      required this.function,
       this.suffix,
       this.style,
       this.prefixWidget})
@@ -47,22 +49,25 @@ class ListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: Row(
-            children: [
-              prefixWidget ?? Container(),
-              const SizedBox(
-                width: 10,
-              ),
-              ColumnWidget()
-            ],
+    return GestureDetector(
+      onTap: function,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                prefixWidget ?? Container(),
+                const SizedBox(
+                  width: 10,
+                ),
+                ColumnWidget()
+              ],
+            ),
           ),
-        ),
-        suffix ?? Container()
-      ],
+          suffix ?? Container()
+        ],
+      ),
     );
   }
 }

@@ -31,6 +31,7 @@ class NotificationPage extends StatelessWidget {
                   Navigator.pushNamed(context, RoutesName.trackingPage);
                 },
                 child: ListWidget(
+                   function: (){},
                   title: StringResource.textBapeling,
                   prefixWidget: const CircleAvatar(
                     radius: 20,
@@ -49,6 +50,7 @@ class NotificationPage extends StatelessWidget {
                   Navigator.pushNamed(context, RoutesName.trackingPage);
                 },
                 child: ListWidget(
+                    function: (){},
                   title: StringResource.textBapeling,
                   prefixWidget: const CircleAvatar(
                     radius: 20,

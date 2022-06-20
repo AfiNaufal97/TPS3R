@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:tps3r/pages/detail_sampah_page.dart';
 import 'package:tps3r/resources/size_resource.dart';
 import 'package:tps3r/resources/string_assets.dart';
 import 'package:tps3r/resources/string_resource.dart';
@@ -16,6 +17,7 @@ import 'package:tps3r/widgets/moleculs/profile_widget.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
+  List<String> sampah = StringResource.listWaste;
   HomePage({Key? key}) : super(key: key);
 
   int valueImg = 0;
@@ -60,12 +62,17 @@ class HomePage extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        SizedBox(
-          height: 150,
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 4,
-              itemBuilder: (context, value) => const BoxWasteCategoryWidget()),
+        GestureDetector(
+          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailSampahPage())),
+          child: SizedBox(
+            height: 150,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                itemBuilder: (context, value) => BoxWasteCategoryWidget(
+                      text: sampah[value],
+                    )),
+          ),
         )
       ],
     );
@@ -81,11 +88,15 @@ class HomePage extends StatelessWidget {
           text: StringResource.textTitleNewsCategory,
           style: FontsStyle.textButtonOnboarding.copyWith(fontSize: 18),
         ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: ListView.builder(
-              itemCount: 5, itemBuilder: (context, value) => const BoxNewsWidget()),
-        ),
+        // SizedBox(
+        //   height:800,
+        //   child: ListView.builder(
+        //     itemCount: 4,
+        //     itemBuilder:(context, index){
+        //       return const BoxNewsWidget();
+        //     } ),
+        BoxNewsWidget()
+        // ListWheelScrollView(itemExtent: 10, children: const [BoxNewsWidget()])
       ],
     );
   }
@@ -168,15 +179,42 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          ButtonWidget(
-            textButton: StringResource.textScanSampah,
-            function: () {
-              Navigator.pushNamed(context, RoutesName.informationWastePage);
-            },
-            width: MediaQuery.of(context).size.width - 120,
-            color: MyColors.green,
-            radius: SizeResource.radius,
-            height: SizeResource.heightButtonScanWaste,
+          Row(
+            children: [
+              Expanded(
+                child: ButtonWidget(
+                  style:
+                      FontsStyle.textSmallBold.copyWith(color: MyColors.white),
+                  textButton: StringResource.textScanSampah,
+                  function: () {
+                    Navigator.pushNamed(
+                        context, RoutesName.informationWastePage);
+                  },
+                  width: MediaQuery.of(context).size.width - 120,
+                  color: MyColors.green,
+                  radius: SizeResource.radius,
+                  height: SizeResource.heightButtonScanWaste,
+                ),
+              ),
+              const SizedBox(
+                width: SizeResource.marginS,
+              ),
+              Expanded(
+                child: ButtonWidget(
+                  style:
+                      FontsStyle.textSmallBold.copyWith(color: MyColors.white),
+                  textButton: StringResource.textJoinButton,
+                  function: () {
+                    Navigator.pushNamed(
+                        context, RoutesName.orderPage);
+                  },
+                  width: MediaQuery.of(context).size.width - 120,
+                  color: MyColors.green,
+                  radius: SizeResource.radius,
+                  height: SizeResource.heightButtonScanWaste,
+                ),
+              ),
+            ],
           )
         ],
       ),

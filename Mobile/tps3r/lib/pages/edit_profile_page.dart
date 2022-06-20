@@ -17,81 +17,79 @@ class EditProfilePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: [
-                HeaderWidget(function: () {}, text: StringResource.titleEditProfilePage),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: SizeResource.paddingHorizontal,
-                      vertical: SizeResource.paddingVertical),
-                  child: Column(
-                    children: [
-                      const Center(
-                          child: Icon(
-                        Icons.camera_alt,
-                        size: 150,
-                      )),
-                      EditTextWidget(
-                        initialValue: StringResource.valueNameEditField,
+          child: Column(
+            children: [
+              HeaderWidget(function: () {}, text: StringResource.titleEditProfilePage),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: SizeResource.paddingHorizontal,
+                    vertical: SizeResource.paddingVertical),
+                child: Column(
+                  children: [
+                    const Center(
+                        child: Icon(
+                      Icons.camera_alt,
+                      size: 150,
+                    )),
+                    EditTextWidget(
+                      initialValue: StringResource.valueNameEditField,
+                      hint: StringResource.hintEmail,
+                      textTitleField: StringResource.titleFieldName,
+                      validator: (valueIn) {},
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    EditTextWidget(
+                        initialValue: 'alex@mail.com',
                         hint: StringResource.hintEmail,
-                        textTitleField: StringResource.titleFieldName,
-                        validator: (valueIn) {},
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      EditTextWidget(
-                          initialValue: 'alex@mail.com',
-                          hint: StringResource.hintEmail,
-                          textTitleField: StringResource.titleFieldEmail,
-                          validator: (valueIn) {}),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      TextWidget(text: StringResource.titleGender),
-                      const RadioButtonWidget(),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      EditTextWidget(
-                          hint: StringResource.hintPhone,
-                          type: TextInputType.number,
-                          textTitleField: StringResource.titleFieldPhone,
-                          validator: (valueIn) {}),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: EditTextWidget(
-                                hint: StringResource.locationTag,
-                                textTitleField: StringResource.locationTag,
-                                validator: (valueIn) {}),
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.location_on_outlined,
-                                size: 30,
-                              ))
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      ButtonWidget(
-                        textButton: StringResource.buttonEditPage,
-                        color: MyColors.main,
-                        function: () {},
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
+                        textTitleField: StringResource.titleFieldEmail,
+                        validator: (valueIn) {}),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    TextWidget(text: StringResource.titleGender),
+                    const RadioButtonWidget(),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    EditTextWidget(
+                        hint: StringResource.hintPhone,
+                        type: TextInputType.number,
+                        textTitleField: StringResource.titleFieldPhone,
+                        validator: (valueIn) {}),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: EditTextWidget(
+                              hint: StringResource.locationTag,
+                              textTitleField: StringResource.locationTag,
+                              validator: (valueIn) {}),
+                        ),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.location_on_outlined,
+                              size: 30,
+                            ))
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    ButtonWidget(
+                      textButton: StringResource.buttonEditPage,
+                      color: MyColors.main,
+                      function: () {},
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(height: SizeResource.marginM,)
+            ],
           ),
         ),
       ),

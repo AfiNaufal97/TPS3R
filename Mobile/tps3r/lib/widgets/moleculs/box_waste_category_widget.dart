@@ -8,7 +8,8 @@ import '../../utils/fonts/fonts_style.dart';
 import '../atom/text_widget.dart';
 
 class BoxWasteCategoryWidget extends StatelessWidget {
-  const BoxWasteCategoryWidget({Key? key}) : super(key: key);
+  String text;
+   BoxWasteCategoryWidget({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class BoxWasteCategoryWidget extends StatelessWidget {
             height: 10,
           ),
           TextWidget(
-            text: StringResource.textTitleWasteCategoryPlastic,
+            text: text,
             style: FontsStyle.textMedium.copyWith(color: MyColors.green),
           )
         ],

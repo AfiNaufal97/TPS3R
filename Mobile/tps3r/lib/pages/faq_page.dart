@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tps3r/pages/scurity_page_detail_info.dart';
+import 'package:tps3r/pages/scurity_page_info.dart';
 import 'package:tps3r/resources/size_resource.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
@@ -6,6 +8,8 @@ import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 import 'package:tps3r/widgets/moleculs/header_widget.dart';
 import 'package:tps3r/widgets/moleculs/list_widget.dart';
+
+import '../resources/string_assets.dart';
 
 class FaqPage extends StatelessWidget {
   const FaqPage({Key? key}) : super(key: key);
@@ -37,17 +41,34 @@ class FaqPage extends StatelessWidget {
 
   // Note: List Faq
   // ignore: non_constant_identifier_names
-  List<Widget> ListFaq() {
+  List<Widget> ListFaq(BuildContext context) {
     List<String> listText = [
       StringResource.textLatePay,
       StringResource.textWhenIUsePoint,
       StringResource.textWhenIUsePoint,
       StringResource.textChangePick
     ];
+
+    List<String> listImage = [
+      StringAssets.imgHowToPay,
+      StringAssets.imgHowToPayWithCoint,
+      StringAssets.imgHowToChangePay
+    ];
     return listText
         .map((e) => Column(
               children: [
                 ListWidget(
+                  function: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ScurityPageInfoDetail(
+                                date: StringResource.textDateUpdate,
+                                image: Image.asset(StringAssets.imgHowToPay,
+                                    fit: BoxFit.fill),
+                                textHeader: StringResource.textDetail,
+                                textNote: StringResource.textNote,
+                                textTitleContent: e,
+                              ))),
                   title: e,
                   suffix: const Icon(Icons.navigate_next),
                   style: FontsStyle.textRegular.copyWith(color: MyColors.green),
@@ -60,8 +81,6 @@ class FaqPage extends StatelessWidget {
         .toList();
   }
 
-
-
   //Note: Box Topik
   // ignore: non_constant_identifier_names
   Widget ContainerTopik(BuildContext context) {
@@ -73,6 +92,7 @@ class FaqPage extends StatelessWidget {
         child: Column(
           children: [
             ListWidget(
+              function: () {},
               prefixWidget: const Icon(
                 Icons.file_copy,
                 size: SizeResource.iconSize,
@@ -84,6 +104,8 @@ class FaqPage extends StatelessWidget {
               height: SizeResource.marginS,
             ),
             ListWidget(
+              function: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ScurityPageInfo())),
               prefixWidget: const Icon(
                 Icons.privacy_tip_outlined,
                 size: SizeResource.iconSize,
@@ -95,6 +117,7 @@ class FaqPage extends StatelessWidget {
               height: SizeResource.marginS,
             ),
             ListWidget(
+              function: () {},
               prefixWidget: const Icon(
                 Icons.other_houses_outlined,
                 size: SizeResource.iconSize,
@@ -129,7 +152,7 @@ class FaqPage extends StatelessWidget {
                   const SizedBox(
                     height: SizeResource.marginM,
                   ),
-                  Column(children: ListFaq()),
+                  Column(children: ListFaq(context)),
                   const SizedBox(
                     height: 20,
                   ),

@@ -129,4 +129,52 @@ Puri Kaja, Kecamatan Denpasar Utara. ''';
   static const textNoTelp = '0812334566777';
   static const textSearchHint = 'example : Denpasar';
   static const textSearchTitle = 'Search';
+  static const listWaste = ["Plastik", "Botol", "Kertas", "Organic"];
+  static const orderPageTitle = "Order Page";
+  static const textWarningForOrder =
+      "Belum berlangganan dengan aplikasi Bapeling, ayuk pilih langanan kamu!";
+  static const textClose = "X";
+  static const textJoin = "Berlangganan Sekarang";
+    static const textJoinButton = "Berlangganan";
+  static const textHitoryJoin = "Riwayat Langanan";
+  static const textResgisterMember = "Register Member";
+  static const textTitleAddress = "Alamat";
+  static const textHintAddress = "Masukan Alamat";
+
+  static const textTitleChoseePackage = "Paket";
+  static const textHinChoosetPackage = "Pilih Paket";
+
+  static const textTitleCountFamilly = "Jumlah Keluarga";
+  static const textHintCountFamilly = "Jumlah Anggota";
+
+  static const textSaveResgister = "Simpan Order";
+
+  static const textTitleContentNews =
+      "Sosialisasi TPS 3R menyasar masyarakat di 7 (tujuh) Br Dinas/Dusun Desa Dauh Puri Kaja";
+
+  static const textTitleValueNews =
+      "Kegiatan Sosialisasi TPS 3R (Tempat Pengolahan Sampah dengan Metode Reduce, Reuse dan Recycle) terus dilaksanakan secara berkala di Desa Dauh Puri Kaja, Kecamatan Denpasar Utara. Sosialisasi dilaksanakan selama 3 (tiga) hari dari tangal 23 s.d. 25 Nopember 2021 dengan menyasar masyarakat di 7 (tujuh) Br.Dinas/Dusun, yaitu Mekarsari,Terunasari, Lumintang, Lelangon, Wangaya Kelod, Wanasari dan Wangaya Kaja. Tujuannya agar warga/krama mulai berperan aktif dalam pengelolaan sampah berbasis sumber yang dimulai dari pemilahan sampah di rumah tangganya masing-masing. Mengingat secara umum lingkungan rumah tangga merupakan penghasil sampah terbanyak, baik di perkotaan, termasuk di pedesaan.";
+  static const textTitleScurityPageInfo = "Perlindungan Data Pribadi";
+
+  static const textTitleInformationData =
+      "Informasi Umum Perlindungan Data Pribadi";
+  static const protectedYourAccoundTitlte = "Perlindungan Data Pribadi";
+  static const textWeCare = "Kami peduli keamanan akun kamu di aplikasi ini";
+  static const textContactMe = "Hubungi Kami";
+  static const textOffAccount = "Menanonaktifkan Account";
+  static const textDataUsersTitle = "Pengumpulan dan Penggunaan Data Pribadi";
+  static const textDataUSerinfo1 =
+      "Apakah  aplikasi Bapeling membagikan data pribadi saya dengan pihak ketiga ?";
+  static const textDataUserinfo2 =
+      "Dalam situasi apa aplikasi Bapeling mengumpulkan data pribadi saya ?";
+  static const textDataUserinfo3 =
+      "Jenis data pribadi apa yang dikumpulkan aplikasi Bapeling dari saya ?";
+  static const textHowToOffAccount =
+      "Bagaimana cara menonaktifkan akun Bapeling saya ?";
+  static const textConatctMeInfo =
+      "Bagaimana cara saya memberikan umpan balik kepada Petugas Perlindungan Data ?";
+
+  static const textDateUpdate = "20-05-2022";
+  static const textDetail = "Detail";
+  static const textNote = "Catatat : Buku Panduan dapat diunduh untuk melihat informasi lebih lanjut disini";
 }

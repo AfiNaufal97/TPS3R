@@ -16,4 +16,7 @@ class RoutesName {
   static const faqPage = '/faq_page';
   static const informationWastePage = '/information_waste_page';
   static const resultWastePage = '/result_waste_page';
+  static const orderPage = '/order_page';
+  static const registerMemberPage = '/register_member_page';
+  static const infoDataUsersPage = '/info_data_user_page';
 }

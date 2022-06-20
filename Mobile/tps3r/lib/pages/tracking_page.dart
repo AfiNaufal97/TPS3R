@@ -40,6 +40,7 @@ class TrackingPage extends StatelessWidget {
                     height: 10,
                   ),
                   ListWidget(
+                    function: () {},
                     title: StringResource.textSttusPetugas1,
                     prefixWidget: const CircleAvatar(
                       radius: 30,
@@ -57,6 +58,7 @@ class TrackingPage extends StatelessWidget {
                     ),
                   ),
                   ListWidget(
+                    function: () {},
                     title: StringResource.textSttusPetugas2,
                     prefixWidget: const CircleAvatar(
                       radius: 30,
@@ -74,6 +76,7 @@ class TrackingPage extends StatelessWidget {
                     ),
                   ),
                   ListWidget(
+                    function: () {},
                     title: StringResource.textSttusPetugas3,
                     prefixWidget: const CircleAvatar(
                       radius: 30,
