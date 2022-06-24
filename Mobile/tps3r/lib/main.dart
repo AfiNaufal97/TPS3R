@@ -79,7 +79,7 @@ class _MyAppsState extends State<MyApps> {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: RoutesName.login,
+        initialRoute: RoutesName.onBoardingPage,
         routes: {
           RoutesName.login: (context) => LoginPage(),
           RoutesName.register: (context) => RegisterPage(),
