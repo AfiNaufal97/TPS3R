@@ -8,12 +8,7 @@ import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/button_widget.dart';
 
 // ignore: must_be_immutable
-class WarningWidget extends StatelessWidget {
-  String text;
-  WarningWidget({Key? key, required this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+Widget WarningWidget (BuildContext context, {required String text}){
     return Stack(
       children: [
         Container(
@@ -55,4 +50,3 @@ class WarningWidget extends StatelessWidget {
       ],
     );
   }
-}

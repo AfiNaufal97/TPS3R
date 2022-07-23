@@ -11,6 +11,7 @@ class EditTextWidget extends StatefulWidget {
   void Function()? onEditingComplete;
   String? initialValue;
   bool? cantRead;
+  int? maxLine;
   String? Function(String? string) validator;
 
   EditTextWidget(
@@ -19,6 +20,7 @@ class EditTextWidget extends StatefulWidget {
       this.cantRead = false,
       this.start,
       this.notRegis = false,
+      this.maxLine = 1,
       this.initialValue,
       this.onEditingComplete,
       required this.validator,
@@ -35,6 +37,7 @@ class _EditTextWidgetState extends State<EditTextWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: widget.maxLine??1,
       keyboardType: widget.type,
       obscureText: widget.cantRead! && !show ? true : false,
       initialValue: widget.initialValue ?? '',

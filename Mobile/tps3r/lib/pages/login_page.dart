@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tps3r/bloc/bloc_signin.dart';
+import 'package:tps3r/bloc/cubit/bloc_singin_state.dart';
 import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/routes/route_name.dart';
@@ -11,11 +14,16 @@ import 'package:tps3r/widgets/moleculs/say_hello_widget.dart';
 import '../widgets/atom/button_widget.dart';
 
 class LoginPage extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
   LoginPage({Key? key}) : super(key: key);
+
+
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    var email = '';
+    var password = '';
     return Scaffold(
       backgroundColor: MyColors.white,
       body: SingleChildScrollView(
@@ -26,8 +34,8 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const LogoWidget(),
-                const SayHelloWidget(),
+                 LogoWidget(context),
+                 SayHelloWidget(),
                 const SizedBox(
                   height: 30,
                 ),
@@ -43,6 +51,9 @@ class LoginPage extends StatelessWidget {
                             if (valueIn != null && valueIn.isEmpty) {
                               return 'Tidak Boleh Kososng';
                             }
+
+                            email = valueIn.toString();
+
                             return null;
                           },
                         ),
@@ -52,24 +63,46 @@ class LoginPage extends StatelessWidget {
                         EditTextWidget(
                           start: const Icon(Icons.password),
                           hint: '*********',
-            
                           textTitleField: 'Password',
                           cantRead: true,
                           validator: (valueIn) {
                             if (valueIn != null && valueIn.isEmpty) {
                               return 'Tidak Boleh Kososng';
                             }
+                          
+                              password = valueIn.toString();
+                      
                             return null;
                           },
                         ),
                         const SizedBox(
                           height: 16,
                         ),
-                        ButtonWidget(
-                          textButton: StringResource.titleLogin,
-                          color: MyColors.green,
-                          function: () {
-                            if (_formKey.currentState!.validate()) {
+                        BlocConsumer<BlocSignin, BlocSignInState>(
+                          builder: (context, state) {
+                            if (state is BlocSigninLoading) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                            return ButtonWidget(
+                              textButton: StringResource.titleLogin,
+                              color: MyColors.green,
+                              function: () {
+                                if (_formKey.currentState!.validate()) {
+                                  context
+                                      .read<BlocSignin>()
+                                      .signinPasswordEmail(email, password);
+                                }
+                              },
+                            );
+                          },
+                          listener: (context, state) {
+                            if (state is BlocSigninEror) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(state.error)));
+                            }
+                            if (state is BlocSigninSuccess) {
                               Navigator.pushNamedAndRemoveUntil(context,
                                   RoutesName.mainPage, (route) => false);
                             }

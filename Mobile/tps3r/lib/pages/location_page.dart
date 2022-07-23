@@ -78,7 +78,7 @@ class LocationPage extends StatelessWidget {
                           )),
                       iconSize: 40,
                       function: () {}),
-                  const ButtonTextWidget()
+                   ButtonTextWidget()
                 ],
               )
             ],

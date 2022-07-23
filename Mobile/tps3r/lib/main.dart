@@ -1,10 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:tps3r/bloc/bloc_add_image.dart';
+import 'package:tps3r/bloc/bloc_auth.dart';
+import 'package:tps3r/bloc/bloc_detail_user.dart';
 import 'package:tps3r/bloc/bloc_image_prediction.dart';
 import 'package:tps3r/bloc/bloc_page.dart';
 import 'package:tps3r/bloc/bloc_show_detail.dart';
+import 'package:tps3r/bloc/bloc_signin.dart';
+import 'package:tps3r/bloc/bloc_singout.dart';
+import 'package:tps3r/pages/cek_auth_page.dart';
 import 'package:tps3r/pages/edit_profile_page.dart';
 import 'package:tps3r/pages/faq_page.dart';
 import 'package:tps3r/pages/information_waste_page.dart';
@@ -22,10 +29,52 @@ import 'package:tps3r/pages/tracking_page.dart';
 import 'package:tps3r/utils/routes/route_name.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+}
+
+late AndroidNotificationChannel? channel;
+
+late FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await permission();
+
+  // Set the background messaging handler early on, as a named top-level function
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  if (!kIsWeb) {
+    channel = const AndroidNotificationChannel(
+      'high_importance_channel', // id
+      'High Importance Notifications', // title
+      description:
+          'This channel is used for important notifications.', // description
+      importance: Importance.high,
+    );
+
+    flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+    /// Create an Android Notification Channel.
+    ///
+    /// We use this channel in the `AndroidManifest.xml` file to override the
+    /// default FCM channel to enable heads up notifications.
+    await flutterLocalNotificationsPlugin!
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel!);
+
+    /// Update the iOS foreground notification presentation options to allow
+    /// heads up notifications.
+    await FirebaseMessaging.instance
+        .setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+  }
+
   runApp(const MyApps());
 }
 
@@ -60,12 +109,36 @@ class MyApps extends StatefulWidget {
 class _MyAppsState extends State<MyApps> {
   @override
   void initState() {
-    super.initState();
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      if (message.notification != null) {
-        print(message.notification!.title);
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if (notification != null && android != null && !kIsWeb) {
+        flutterLocalNotificationsPlugin!.show(
+          notification.hashCode,
+          notification.title,
+          notification.body,
+          NotificationDetails(
+            android: AndroidNotificationDetails(
+              channel!.id,
+              channel!.name,
+              channelDescription: channel!.description,
+              // TODO add a proper drawable resource to android, for now using
+              //      one that already exists in example app.
+              icon: 'launch_background',
+            ),
+          ),
+        );
       }
     });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print('A new onMessageOpenedApp event was published!');
+      Navigator.pushNamed(
+        context,
+        RoutesName.mainPage,
+      );
+    });
+    super.initState();
   }
 
   @override
@@ -75,11 +148,15 @@ class _MyAppsState extends State<MyApps> {
         BlocProvider(create: (context) => BlocPage()),
         BlocProvider(create: (context) => BlocAddImage()),
         BlocProvider(create: (context) => BlocImagePrediction()),
-        BlocProvider(create: (context) => BlocShowDetail())
+        BlocProvider(create: (context) => BlocShowDetail()),
+        BlocProvider(create: (context) => BlocAuth()),
+        BlocProvider(create: (context) => BlocSignin()),
+        BlocProvider(create: (context) => BlocSingout()),
+        BlocProvider(create: (context) => BlocDetailUser()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: RoutesName.onBoardingPage,
+        initialRoute: RoutesName.cekAuth,
         routes: {
           RoutesName.login: (context) => LoginPage(),
           RoutesName.register: (context) => RegisterPage(),
@@ -95,7 +172,8 @@ class _MyAppsState extends State<MyApps> {
               const InformationWastePage(),
           RoutesName.orderPage: (context) => OrderPage(),
           RoutesName.registerMemberPage: (context) => RegisterMember(),
-          RoutesName.infoDataUsersPage: (context) => ScurityPageInfo()
+          RoutesName.infoDataUsersPage: (context) => const ScurityPageInfo(),
+          RoutesName.cekAuth: (context) => CekAuthPage(),
         },
       ),
     );

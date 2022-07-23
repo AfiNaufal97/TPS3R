@@ -22,8 +22,8 @@ class RewardPage extends StatelessWidget {
                   iconSize: 28),
             ),
             Column(
-              children: const [
-                TicketPointWidget(),
+              children:  [
+                TicketPointWidget(context),
               ],
             )
           ],

@@ -36,20 +36,7 @@ class RegisterMember extends StatelessWidget {
                     ),
                     EditTextWidget(
                         hint: StringResource.textHintAddress,
-                        validator: (input) {},
-                        textTitleField: StringResource.textTitleAddress),
-                    const SizedBox(
-                      height: SizeResource.marginM,
-                    ),
-                    EditTextWidget(
-                        hint: StringResource.textHintAddress,
-                        validator: (input) {},
-                        textTitleField: StringResource.textTitleAddress),
-                    const SizedBox(
-                      height: SizeResource.marginM,
-                    ),
-                    EditTextWidget(
-                        hint: StringResource.textHintAddress,
+                        maxLine: 4,
                         validator: (input) {},
                         textTitleField: StringResource.textTitleAddress),
                     const SizedBox(

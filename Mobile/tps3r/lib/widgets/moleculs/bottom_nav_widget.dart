@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/colors/colors_style.dart';
 
-class BottomNavWidget extends StatelessWidget {
-  const BottomNavWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+Widget BottomNavWidget(){
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -53,4 +49,3 @@ class BottomNavWidget extends StatelessWidget {
       ],
     );
   }
-}

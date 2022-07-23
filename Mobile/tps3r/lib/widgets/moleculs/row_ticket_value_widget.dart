@@ -3,11 +3,8 @@ import 'package:tps3r/resources/string_resource.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 
-class RowTicketValueWidget extends StatelessWidget {
-  const RowTicketValueWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+// ignore: non_constant_identifier_names
+Widget RowTicketValueWidget(BuildContext context){
     return SizedBox(
         height: 80,
         width: MediaQuery.of(context).size.width - 60,
@@ -64,4 +61,4 @@ class RowTicketValueWidget extends StatelessWidget {
           ],
         ));
   }
-}
+

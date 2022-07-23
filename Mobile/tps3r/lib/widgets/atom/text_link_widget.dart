@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
-class TextLinkWidget extends StatelessWidget {
-  String textNotLink;
-  String textForLink;
-  void Function() function;
-  TextLinkWidget(
-      {Key? key, required this.textNotLink, required this.textForLink, required this.function})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+// ignore: must_be_immutable, non_constant_identifier_names
+Widget TextLinkWidget ({  required String textNotLink,
+required String textForLink,
+required void Function() function}){
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -21,4 +14,3 @@ class TextLinkWidget extends StatelessWidget {
       ],
     );
   }
-}

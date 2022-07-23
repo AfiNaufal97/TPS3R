@@ -14,10 +14,10 @@ class TakeImageWidget extends StatelessWidget {
 
   void getImage(BuildContext context) async {
     if (camera) {
-      var data = await picker.pickImage(source: ImageSource.camera);
+      var data = await picker.pickImage(source: ImageSource.camera , maxWidth: 224, maxHeight: 224);
       context.read<BlocAddImage>().addPhoto(data);
     } else {
-      var data = await picker.pickImage(source: ImageSource.gallery);
+      var data = await picker.pickImage(source: ImageSource.gallery, maxHeight: 224, maxWidth: 224);
       context.read<BlocAddImage>().addPhoto(data);
     }
   }

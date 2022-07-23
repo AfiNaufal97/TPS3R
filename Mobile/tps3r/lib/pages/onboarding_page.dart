@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:lottie/lottie.dart';
@@ -30,7 +31,8 @@ class OnBoardingPage extends StatelessWidget {
             style: FontsStyle.textButtonOnboarding,
           ),
           onDone: () {
-            Navigator.pushNamedAndRemoveUntil(context, RoutesName.login, (route) => false);
+            Navigator.pushNamedAndRemoveUntil(
+                context, RoutesName.login, (route) => false);
           },
           next: TextWidget(
             text: StringResource.textNext,

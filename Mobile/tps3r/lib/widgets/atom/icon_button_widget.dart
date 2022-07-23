@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
-class IconButtonWidget extends StatelessWidget {
-  Widget icon;
-  double iconSize;
-  void Function() function;
-  IconButtonWidget(
-      {Key? key,
-      required this.icon,
-      required this.iconSize,
-      required this.function})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+// ignore: must_be_immutable, non_constant_identifier_names
+Widget IconButtonWidget(
+{
+required Widget icon,
+required double iconSize,
+required void Function() function}
+){
     return IconButton(
       onPressed: function,
       icon: icon,
       iconSize: iconSize,
     );
   }
-}
+

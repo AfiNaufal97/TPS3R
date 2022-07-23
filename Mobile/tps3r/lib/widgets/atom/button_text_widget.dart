@@ -5,11 +5,8 @@ import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 
-class ButtonTextWidget extends StatelessWidget {
-  const ButtonTextWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+// ignore: non_constant_identifier_names
+Widget ButtonTextWidget(){
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: SizeResource.paddingHorizontal),
       child: ElevatedButton(
@@ -34,4 +31,3 @@ class ButtonTextWidget extends StatelessWidget {
       ),
     );
   }
-}

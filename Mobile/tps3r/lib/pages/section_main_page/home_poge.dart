@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
               initialPage: 2,
               height: 110,
             ),
-            items: const [
+            items:  [
               CarouselWidget(),
               CarouselWidget(),
               CarouselWidget(),
@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
-                itemBuilder: (context, value) => BoxWasteCategoryWidget(
+                itemBuilder: (context, value) => BoxWasteCategoryWidget(context,
                       text: sampah[value],
                     )),
           ),
@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
         //     itemBuilder:(context, index){
         //       return const BoxNewsWidget();
         //     } ),
-        BoxNewsWidget()
+        BoxNewsWidget(context)
         // ListWheelScrollView(itemExtent: 10, children: const [BoxNewsWidget()])
       ],
     );
@@ -230,7 +230,9 @@ class HomePage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ProfileWidget(),
+              ProfileWidget(
+                home: true,
+              ),
               const SizedBox(
                 height: 110,
               ),

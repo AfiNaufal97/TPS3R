@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tps3r/bloc/bloc_detail_user.dart';
 import 'package:tps3r/bloc/bloc_page.dart';
 import 'package:tps3r/pages/section_main_page/home_poge.dart';
 import 'package:tps3r/pages/section_main_page/maps_page.dart';
@@ -155,6 +157,7 @@ class MainPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
+                context.read<BlocDetailUser>().getDetailUser(FirebaseAuth.instance.currentUser!.uid);
                 context.read<BlocPage>().profile();
               },
               child: Column(

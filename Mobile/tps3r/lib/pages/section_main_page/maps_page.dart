@@ -241,23 +241,10 @@ class _MapsPageState extends State<MapsPage> {
           if (state is StateInit) {
             return Container();
           }
-          return const Positioned(bottom: 10, child: DetailLocationWidget());
+          return  Positioned(bottom: 10, child: DetailLocationWidget(context));
         },
       ),
-      Positioned(
-        top: SizeResource.marginS,
-        left: SizeResource.marginS,
-        child: Container(
-          width: MediaQuery.of(context).size.width - 70,
-          decoration: BoxDecoration(
-              color: Colors.white.withOpacity(SizeResource.opacity)),
-          child: EditTextWidget(
-              notRegis: true,
-              hint: StringResource.textSearchHint,
-              validator: (String? input) {},
-              textTitleField: StringResource.textSearchTitle),
-        ),
-      )
+
     ]));
   }
 }

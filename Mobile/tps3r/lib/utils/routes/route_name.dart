@@ -19,4 +19,6 @@ class RoutesName {
   static const orderPage = '/order_page';
   static const registerMemberPage = '/register_member_page';
   static const infoDataUsersPage = '/info_data_user_page';
+  static const webPage = '/web_page';
+  static const cekAuth = '/cek_auth_page';
 }

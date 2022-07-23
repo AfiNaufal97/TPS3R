@@ -7,11 +7,7 @@ import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 
-class BoxNewsWidget extends StatelessWidget {
-  const BoxNewsWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+Widget BoxNewsWidget (BuildContext context){
     return GestureDetector(
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (context) => DetailNewsPage())),
@@ -59,4 +55,3 @@ class BoxNewsWidget extends StatelessWidget {
       ),
     );
   }
-}

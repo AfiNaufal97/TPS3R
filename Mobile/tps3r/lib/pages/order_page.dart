@@ -22,7 +22,7 @@ class OrderPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            WarningWidget(text: StringResource.textWarningForOrder),
+            WarningWidget(context,text: StringResource.textWarningForOrder),
             const SizedBox(
               height: 20,
             ),

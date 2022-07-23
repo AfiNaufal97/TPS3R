@@ -6,11 +6,8 @@ import 'package:tps3r/utils/colors/colors_style.dart';
 import 'package:tps3r/utils/fonts/fonts_style.dart';
 import 'package:tps3r/widgets/atom/text_widget.dart';
 
-class CarouselWidget extends StatelessWidget {
-  const CarouselWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
+// ignore: non_constant_identifier_names
+Widget CarouselWidget (){
     return Container(
       padding: const EdgeInsets.all(SizeResource.padding),
       decoration: BoxDecoration(
@@ -47,4 +44,3 @@ class CarouselWidget extends StatelessWidget {
       ),
     );
   }
-}

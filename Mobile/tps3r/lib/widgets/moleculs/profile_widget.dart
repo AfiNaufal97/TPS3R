@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tps3r/bloc/bloc_detail_user.dart';
+import 'package:tps3r/bloc/cubit/bloc__detail_user_state.dart';
 
 import '../../resources/size_resource.dart';
 import '../../resources/string_assets.dart';
-import '../../resources/string_resource.dart';
 import '../../utils/colors/colors_style.dart';
 import '../../utils/fonts/fonts_style.dart';
 import '../atom/text_widget.dart';
@@ -10,7 +12,8 @@ import '../atom/text_widget.dart';
 // ignore: must_be_immutable
 class ProfileWidget extends StatelessWidget {
   double? size;
-  ProfileWidget({Key? key, this.size}) : super(key: key);
+  bool home;
+  ProfileWidget({Key? key, this.size, required this.home}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +44,41 @@ class ProfileWidget extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                TextWidget(
-                  text: StringResource.sayHello,
+             BlocBuilder<BlocDetailUser, BlocDetailUserState>(
+               builder: (context, state) {
+                if(state is BlocDetailUserStateSuccess){
+                  return TextWidget(
+                    text: home ? 'Hello , ${state.userModel.nama}' : state.userModel.nama,
+                    style: FontsStyle.textMedium.copyWith(color: MyColors.green),
+                  );
+                }
+                return TextWidget(
+                  text: 'Your Name',
                   style: FontsStyle.textMedium.copyWith(color: MyColors.green),
-                ),
-                TextWidget(
-                  text: StringResource.textSelamatDatangBapeling,
-                  style: FontsStyle.textRegular.copyWith(color: MyColors.green),
+                );
+               },
+
+             )
+
+                  ,
+                BlocBuilder<BlocDetailUser, BlocDetailUserState>(
+                  builder: (context, state) {
+                    if(state is BlocDetailUserStateSuccess){
+                      return TextWidget(
+                        text: home ? 'Selamat Datang di Bapeling' : state.userModel.email,
+                        style: FontsStyle.textSmallBold.copyWith(
+                            fontSize: 12,
+                            color: MyColors.green),
+                      );
+                    }
+                    return TextWidget(
+                      text: 'Selamat Datang di Bapeling',
+                      style: FontsStyle.textSmallBold.copyWith(
+                          fontSize: 12,
+                          color: MyColors.green),
+                    );
+                  },
+
                 )
               ],
             )
